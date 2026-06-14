@@ -174,15 +174,20 @@ docker compose up -d
 ```
 # 2. Thực Hành
 - Tạo thư mục chứa dự án:
+- 
   <img width="717" height="66" alt="image" src="https://github.com/user-attachments/assets/683de2d2-8ce0-41a2-8add-9849554b6ef8" />
+  
 Bước 1: Xây dựng Backend Flask API:
+
 1. backend/requirements.txt
 ```
 flask
 flask-cors
 mysql-connector-python
 ```
+
 <img width="698" height="159" alt="image" src="https://github.com/user-attachments/assets/c5d02bb3-ee21-4013-a64c-26753ec6c234" />
+
 2. backend/Dockerfile
 ```
 FROM python:3.9-slim
@@ -192,29 +197,51 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 CMD ["python", "app.py"]
 ```
+
 <img width="699" height="227" alt="image" src="https://github.com/user-attachments/assets/9f65399c-6d9e-45a3-9240-1a74e45046b9" />
+
 3. backend/app.py"
+
 <img width="1090" height="626" alt="image" src="https://github.com/user-attachments/assets/7fc7c579-4f08-44e9-8bfe-ff10221a8bf6" />
+
 Bước 2: Xây dựng Frontend Giao diện:
 - frontend/index.html:
+- 
   <img width="1103" height="622" alt="image" src="https://github.com/user-attachments/assets/88f18aeb-9966-43cc-9e0c-6a067fc64de3" />
+  
 Bước 3: Thiết lập cấu hình hệ thống docker-compose.yml
+
 <img width="1115" height="627" alt="image" src="https://github.com/user-attachments/assets/a18ae097-9e46-4888-99c7-69708af9cbc3" />
+
 Bước 4: Khởi chạy cụm Container:
+
 <img width="1095" height="535" alt="image" src="https://github.com/user-attachments/assets/1b8ad7a0-de50-4b1c-a06d-ed7c3740b9df" />
+
   Bước 5: Cấu hình nodered để lấy API và gửi thông báo, lưu dữ liệu tại các db:
+  
   <img width="1154" height="326" alt="image" src="https://github.com/user-attachments/assets/d1201ce9-f6dd-4d91-8524-781891598900" />
+  
 
 - Sau khi nodered hoạt động, bot sẽ tự động gửi tin nhắn vào nhóm:
+
   <img width="1537" height="920" alt="image" src="https://github.com/user-attachments/assets/81ce326c-007d-42d1-bf8b-5c3293b73383" />
+  
    Bước 6: Cấu hình Grafana để kết nối tới Influxdb:
+  
   <img width="1218" height="888" alt="image" src="https://github.com/user-attachments/assets/3875d37b-5537-4393-a42d-949d61f15704" />
+  
 <img width="1550" height="710" alt="image" src="https://github.com/user-attachments/assets/0aa93582-78c7-4adf-ab65-b1d3d0197679" />
+
 - Tạo biểu đồ bằng các lệnh truy vấn tới flux:
+
   <img width="1626" height="947" alt="image" src="https://github.com/user-attachments/assets/f8dccf0d-3d12-4e24-915c-d29080ba2939" />
+  
  Bước 7 : Cấu hình index.html để thay iframe của grafana và hiển thị biểu đồ trên web:
+ 
 <img width="1109" height="627" alt="image" src="https://github.com/user-attachments/assets/4df025c0-79ff-4ec8-8652-8a87e4f97c9a" />
+
 <img width="1652" height="977" alt="image" src="https://github.com/user-attachments/assets/a2e91608-0759-4481-991f-02696520bb40" /> 
+
   Bước 8: Backup dữ liệu:
   - xuất tất cả các container ra file nén:
 ```
